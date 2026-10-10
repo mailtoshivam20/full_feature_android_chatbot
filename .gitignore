@@ -218,3 +218,26 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ── Environment / secrets ─────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Node / Frontend ───────────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+dist/
+build/
+*.tsbuildinfo
+
+# ── Local data directories ────────────────────────────────────────────
+uploads/
+chroma_db/
+backend/uploads/
+backend/chroma_db/
+
+# ── VS Studio ─────────────────────────────────────────────────────────
+.vs/
