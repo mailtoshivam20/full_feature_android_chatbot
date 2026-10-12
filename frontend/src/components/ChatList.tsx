@@ -84,7 +84,7 @@ export default function ChatList() {
                 {chat.title}
               </span>
               <span className="text-xs text-gray-400 ml-2 shrink-0">
-                {new Date(chat.updated_at).toLocaleDateString()}
+                {new Date(chat.updated_at.endsWith("Z") ? chat.updated_at : chat.updated_at + "Z").toLocaleDateString()}
               </span>
             </div>
             {chat.last_message_preview && (

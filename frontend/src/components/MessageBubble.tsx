@@ -48,7 +48,7 @@ export default function MessageBubble({ message, chatId, onRegenerate }: Props) 
         {/* Action bar */}
         <div className="flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
           <span className="text-xs opacity-50">
-            {new Date(message.created_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+            {new Date(message.created_at.endsWith("Z") ? message.created_at : message.created_at + "Z").toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
           </span>
           <button
             onClick={handleCopy}

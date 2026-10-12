@@ -2,13 +2,15 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
+from app.schemas import AppBaseModel
+
 
 class MessageCreate(BaseModel):
     content: str
     role: str = "user"
 
 
-class MessageResponse(BaseModel):
+class MessageResponse(AppBaseModel):
     id: str
     chat_id: str
     user_id: str | None
@@ -17,8 +19,6 @@ class MessageResponse(BaseModel):
     model_used: str | None
     token_count: int | None
     created_at: datetime
-
-    model_config = {"from_attributes": True}
 
 
 class MessageListResponse(BaseModel):

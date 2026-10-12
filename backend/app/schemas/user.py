@@ -2,6 +2,8 @@ from datetime import datetime
 
 from pydantic import BaseModel, EmailStr, field_validator
 
+from app.schemas import AppBaseModel
+
 
 class UserCreate(BaseModel):
     email: EmailStr
@@ -29,14 +31,12 @@ class UserCreate(BaseModel):
         return v
 
 
-class UserResponse(BaseModel):
+class UserResponse(AppBaseModel):
     id: str
     email: str
     username: str
     is_active: bool
     created_at: datetime
-
-    model_config = {"from_attributes": True}
 
 
 class UserUpdate(BaseModel):

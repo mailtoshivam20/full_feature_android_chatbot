@@ -2,6 +2,8 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
+from app.schemas import AppBaseModel
+
 
 class ChatCreate(BaseModel):
     title: str = "New Chat"
@@ -13,7 +15,7 @@ class ChatUpdate(BaseModel):
     system_prompt: str | None = None
 
 
-class ChatResponse(BaseModel):
+class ChatResponse(AppBaseModel):
     id: str
     title: str
     system_prompt: str | None
@@ -24,8 +26,6 @@ class ChatResponse(BaseModel):
     updated_at: datetime
     last_message_preview: str | None = None
     message_count: int = 0
-
-    model_config = {"from_attributes": True}
 
 
 class ChatListResponse(BaseModel):

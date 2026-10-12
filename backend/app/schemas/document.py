@@ -1,9 +1,9 @@
 from datetime import datetime
 
-from pydantic import BaseModel
+from app.schemas import AppBaseModel
 
 
-class DocumentResponse(BaseModel):
+class DocumentResponse(AppBaseModel):
     id: str
     chat_id: str
     user_id: str
@@ -12,5 +12,3 @@ class DocumentResponse(BaseModel):
     size_bytes: int
     is_indexed: bool
     created_at: datetime
-
-    model_config = {"from_attributes": True}
